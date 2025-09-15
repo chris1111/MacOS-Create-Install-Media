@@ -2,7 +2,7 @@
 
 [![pages-build-deployment](https://github.com/chris1111/MacOS-Create-Install-Media/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/chris1111/MacOS-Create-Install-Media/actions/workflows/pages/pages-build-deployment)
 
-[![License: MIT](https://github.com/chris1111/MacOS-Create-Install-Media/blob/main/Notifications/MIT.svg)](https://github.com/chris1111/MacOS-Create-Install-Media/blob/main/LICENSE)
+[![License: MIT](https://github.com/chris1111/MacOS-Create-Install-Media/blob/main/Source/PICS/MIT.svg)](https://github.com/chris1111/MacOS-Create-Install-Media/blob/main/LICENSE)
 
 
 #### A simple macOS Applications for creating a bootable volume of macOS
