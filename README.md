@@ -9,4 +9,5 @@
 
 <img width="730" height="717" alt="Screenshot 1" src="https://github.com/user-attachments/assets/aba1700a-e46e-42cb-9417-9dcba13f93cf" />
 
+#### View Log install time: It take 14 minutes on verry fast USB 3.0 install drive ⬇︎
 <img width="550" height="451" alt="Screenshot 2" src="https://github.com/user-attachments/assets/8ce82338-21aa-4cf1-bfe1-ee917dc7c46c" />
