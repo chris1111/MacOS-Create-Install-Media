@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# MacOS Create Install Media, Copyright (c) 2025 chris1111. All Right Reserved.
+# Credit: Apple
+# Version "1.0"
+# AppleScript Code
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo Starting $current_date_time Wait until the end. . .;
+Sleep 2
+echo "DETAILS:HIDE"
+osascript <<EOD
+set theAction to button returned of (display dialog "
+Welcome MacOS Create Install Media
+-------------------------
+*Gatekeeper* then *SIP Security* must be disabled 
+to create macOS Install drive.
+--------------------------
+You can create a bootable USB key 
+from macOS High Sierra 10.13 to macOS Tahoe 26
+		
+Format your USB Drive with Disk Utility 
+in the format Mac OS Extended (Journaled) 
+GUID Partition Map
+*****************************
+You must quit Disk Utility to continue 
+installation !" with icon 2 buttons {"Quit", "Create USB Drive"} cancel button "Quit" default button {"Create USB Drive"})--If Create USB Driveif theAction = "Create USB Drive" then	do shell script "open -F -a 'Disk Utility'"	delay 1	tell application "Disk Utility"		activate	end tell		repeat		if application "Disk Utility" is not running then exit repeat	end repeat	activate me	set Volumepath to paragraphs of (do shell script "ls /Volumes")	set Diskpath to choose from list Volumepath with prompt "
+To continue, select the volume you want to use, then press the OK button" OK button name "OK" with multiple selections allowed	if Diskpath is false then		display dialog "Quit Installer " with icon 0 buttons {"EXIT"} default button {"EXIT"}		return				return (POSIX path of Diskpath)	end if	try		--If Continue		set theAction to button returned of (display dialog "
+Choose the location of your Install macOS.app" with icon 2 buttons {"Quit", "High Sierra to Tahoe"} cancel button "Quit" default button {"High Sierra to Tahoe"})		if theAction = "High Sierra to Tahoe" then			--If High Sierra to Tahoe						set InstallOSX to choose file of type {"XLSX", "APPL"} default location (path to applications folder) with prompt "Choose your Install macOS.app"			set OSXInstaller to POSIX path of InstallOSX						delay 2			display dialog "Please confirm your choice?
+Create Install Media from --> " & (InstallOSX as text) & "
+Install to --> " & (Diskpath as text) with icon 2 buttons {"Cancel", "OK"} cancel button "Cancel" default button "OK"
+                        delay 1						do shell script "\"" & OSXInstaller & "Contents/Resources/createinstallmedia\" --volume /Volumes/\"" & Diskpath & "\" --nointeraction" with administrator privileges								end if	end tryend if
+EOD
+echo " "
+echo "MacOS Create Install Media Completed!"
+Sleep 1
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo Done $current_date_time;
+Sleep 1		
+echo "DETAILS:SHOW"
