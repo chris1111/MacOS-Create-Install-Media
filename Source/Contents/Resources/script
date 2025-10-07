@@ -42,7 +42,7 @@ if theAction = "Create USB Drive" then
 To continue, select the volume you want to use, then press the OK button" OK button name "OK" with multiple selections allowed
 	if Diskpath is false then
 		display dialog "Quit Installer " with icon 0 buttons {"EXIT"} default button {"EXIT"}
-                do shell script "killall 'MacOS Create Install Media'"
+        do shell script "killall 'MacOS Create Install Media'"
 		return
 		
 		return (POSIX path of Diskpath)
